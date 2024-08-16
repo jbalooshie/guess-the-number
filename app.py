@@ -19,7 +19,7 @@ def gameplay_loop():
         except ValueError:
             print('You did not guess a number. Try again.')
             continue
-        
+
         if player_guess > 100 or player_guess < 0:
             print('That is not a valid guess! The number is from 1 to 100.')
         elif player_guess > guess_me:
