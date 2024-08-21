@@ -15,7 +15,7 @@ def gameplay_loop():
     guesses = 0
     while True:
         try:
-            player_guess = int(input('Enter your guess.'))
+            player_guess = int(input('Enter your guess.\n'))
         except ValueError:
             print('You did not guess a number. Try again.')
             continue
@@ -25,6 +25,7 @@ def gameplay_loop():
         elif player_guess > guess_me:
             guesses += 1
             print('The number I am thinking of is smaller than that. Guess again!')
+
         elif player_guess < guess_me:
             guesses += 1
             print('The number I am thinking of is larger than that. Guess again!')
@@ -32,13 +33,22 @@ def gameplay_loop():
             guesses += 1
             print(f'Congrats! You guessed the number in {guesses} tries.')
             break
+
+        if guess_me - 5 < player_guess < guess_me + 5:
+            if guess_me - 2 < player_guess < guess_me + 2:
+                time.sleep(1)
+                print('You are very close!')
+            else:
+                time.sleep(1)
+                print('You are close!')
+        
         
 
 def play_again():
     time.sleep(3)
     choice = ''
     while True:
-        choice = input('Would you like to play again? Y/N')
+        choice = input('Would you like to play again? Y/N\n')
         if choice == 'Y':
             print("Ok! I'm thinking of a new number.")
             time.sleep(1)
